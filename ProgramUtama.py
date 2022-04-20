@@ -8,6 +8,9 @@ from F04_TambahGame import tambahgame
 from F05_UbahGame import ubah_game
 from F06_UbahStok import ubah_stok
 from F07_ListingGame import listGame
+from F09_LihatGameSendiri import game_pengguna
+from F10_CariGameSendiri import CariGameSendiri
+from F11_CariGameDiToko import CariGameDiToko
 
 import lensplit
 splittext = lensplit.splittext
@@ -69,9 +72,12 @@ while exit==False:
                 listGame(game)
             # elif pil=="7":
             # elif pil=="8":
-            # elif pil=="9":
-            # elif pil=="10":
-            # elif pil=="11":
+            elif pil=="9":
+                game_pengguna(kepemilikan, game, data_pengguna)
+            elif pil=="10":
+                CariGameSendiri(game)
+            elif pil=="11":
+                CariGameDiToko(game)
             # elif pil=="12":
             # elif pil=="13":
             # elif pil=="14":
