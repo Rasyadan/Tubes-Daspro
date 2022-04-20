@@ -2,9 +2,9 @@
 import csvparser
 parse = csvparser.parse
 tocsv = csvparser.tocsv
-from ubahgameditoko import ubah_game
-from ubahstokgameditoko import ubah_stok
-from listinggame import listGame
+from F05_UbahGame import ubah_game
+from F06_UbahStok import ubah_stok
+from F07_ListingGame import listGame
 import lensplit
 splittext = lensplit.splittext
 arrayLength = lensplit.arrayLength
