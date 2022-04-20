@@ -73,7 +73,7 @@ while exit==False:
             # elif pil=="7":
             # elif pil=="8":
             elif pil=="9":
-                game_pengguna(kepemilikan, game, data_pengguna)
+                game_pengguna(kepemilikan, game, data_pengguna) #array kepemilikan belum ada
             elif pil=="10":
                 CariGameSendiri(game)
             elif pil=="11":
