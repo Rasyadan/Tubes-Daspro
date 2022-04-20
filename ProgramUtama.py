@@ -2,9 +2,13 @@
 import csvparser
 parse = csvparser.parse
 tocsv = csvparser.tocsv
+from F02_Register import register
+from F03_Login import login
+from F04_TambahGame import tambahgame
 from F05_UbahGame import ubah_game
 from F06_UbahStok import ubah_stok
 from F07_ListingGame import listGame
+
 import lensplit
 splittext = lensplit.splittext
 arrayLength = lensplit.arrayLength
@@ -14,74 +18,10 @@ arrayLength = lensplit.arrayLength
 game = parse((open("game.csv", "r").readlines()), 6) # Bentuk Array
 user = parse((open("user.csv", "r",).readlines()), 6) # Bentuk Array
 
-# Fungsi-Fungsi Program
-def login(user):
-    username = (input("Masukkan username: "))
-    password = (input("Masukkan password: "))
-    logged_in=True
-    found=False
-    i=1 
-    while i<=(arrayLength(user)-1) and not found:
-        data=splittext(user[i],";")
-        if data[1]==username:
-                if data[3]==password:
-                    data_pengguna = splittext(user[i],";")
-                    print("Halo",data_pengguna[2]+"!","Selamat datang di Binomo")
-                    logged_in=True
-                    print("=="*24)
-                    return data_pengguna
-                else:
-                    print("Password Anda salah")
-                found=True            
-        i+=1
-    if not found:
-        print("Username tidak ditemukan")
-    return logged_in==False
-
-def register(user):
-    nama= input("Masukkan nama: ")
-    username = input("Masukkan username: ")
-    password= input("Masukkan password: ")
-    found=False
-    i=1
-
-    while i<=(arrayLength(user)-1) and not found:
-            data=splittext(user[i],";")
-            if data[1]==username:
-                found=True
-            else:
-                i+=1
-    if found==True :
-        print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
-    else:
-        tambahan = f"{arrayLength(user)};{username};{nama};{password};user;0"
-        user = ((open("C:/Users/ASUS/OneDrive/Dokumen/TUBES/user.csv", "a").write(f"{tambahan}/n")))
-    
-def tambahgame(game):
-    game = ((open("C:/Users/ASUS/OneDrive/Dokumen/TUBES/game.csv", "r").readlines()))
-    inputSelesai=False
-    while not inputSelesai:
-        nama= input("Masukkan nama game: ")
-        kategori = input("Masukkan kategori: ")
-        tahun_rilis= int(input("Masukkan tahun rilis: "))
-        harga=int(input("Masukkan harga: "))
-        stok_awal=int(input("Masukkan stok awal: "))
-        if (nama!="" and kategori!="" and tahun_rilis!="" and harga!="" and stok_awal!="" ):
-            tambahan=f"GAME00{arrayLength(game)};{nama};{kategori};{tahun_rilis};{harga};{stok_awal}"
-            inputSelesai
-            break
-        else:
-            print("Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
-            inputSelesai=False
-
-    game = ((open("C:/Users/ASUS/OneDrive/Dokumen/TUBES/game.csv", "a").write(f"{tambahan}\n")))
-
-
-
 
 # Program
 logged_in=False
-exit=False
+isExit=False
 while exit==False:
     print("Silahkan memilih opsi di bawah untuk memulai binomo")
     print("1. LOGIN")
@@ -114,19 +54,11 @@ while exit==False:
             print("Oke tunggu sebentar...")
             print("=="*24)
             if pil=="2":
-                if data_pengguna[4]=="admin":
-                    register(user)
-                else:
-                    print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.") 
-                    print("Mintalah ke administrator untuk melakukan hal tersebut.")
-
-
+                #IF ADMIN
+                user = register(user,data_pengguna)
             elif pil=="3":
-                if data_pengguna[4]=="admin":
-                    tambahgame(game)
-                else:
-                    print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.") 
-                    print("Mintalah ke administrator untuk melakukan hal tersebut.")
+                #IF ADMIN
+                game = tambahgame(game,data_pengguna)
             elif pil=="4":
                 # IF ADMIN :
                 game = ubah_game("Admin", game)
@@ -146,7 +78,8 @@ while exit==False:
 
             # elif pil=="15":
 
-            # elif pil=="16":
+            elif pil=="16":
+                isExit=exit()
 
             else:
                 print("Pilihan tidak tersedia")
