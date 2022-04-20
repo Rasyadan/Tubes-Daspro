@@ -12,14 +12,14 @@ def changeData(input,indeks,file_game): # Prosedur mengganti data pada array gam
     if (input != ""):
         file_game[indeks] = input
 
-def isAdmin (user_state): # Cek apakah pengguna admin atau bukan
-    if (user_state == "Admin"):
+def isAdmin (data_pengguna): # Cek apakah pengguna admin atau bukan
+    if (data_pengguna[4] == "admin"):
         return True
     else : 
         return False
 
-def ubah_game(user_state,file_game): # Prosedur mengubah data game pada memori
-    if (isAdmin(user_state)) :
+def ubah_game(data_pengguna,file_game): # Prosedur mengubah data game pada memori
+    if (isAdmin(data_pengguna)) :
         # Input Data
         game_id = input("Masukkan ID game : ")
         nama_game = input("Masukkan nama game : ")

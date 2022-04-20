@@ -2,14 +2,14 @@ import arrayFunctions
 from csvparser import parse
 arrayLoc = arrayFunctions.ArrayLoc
 
-def isAdmin (user_state): # Cek apakah pengguna admin atau bukan
-    if (user_state == "Admin"):
+def isAdmin (data_pengguna): # Cek apakah pengguna admin atau bukan
+    if (data_pengguna[4] == "admin"):
         return True
     else : 
         return False
 
-def ubah_stok(user_state,file_game): # Mengubah stok pada memori dengan parameter jenis pengguna dan file csv game
-    if (isAdmin(user_state)): # Cek Admin atau bukan
+def ubah_stok(data_pengguna,file_game): # Mengubah stok pada memori dengan parameter jenis pengguna dan file csv game
+    if (isAdmin(data_pengguna)): # Cek Admin atau bukan
         game_id = input("Masukkan Game ID : ")
         indeks = arrayLoc(file_game, game_id) 
         if (indeks != -1):
