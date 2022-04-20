@@ -17,8 +17,7 @@ def tambahgame(game,data_pengguna):
             stok_awal=int(input("Masukkan stok awal: "))
             if (nama!="" and kategori!="" and tahun_rilis!="" and harga!="" and stok_awal!="" ):
                 tambahan=[f"GAME00{arrayLength(game)/6+2}",nama,kategori,tahun_rilis,harga,stok_awal]
-                inputSelesai
-                break
+                inputSelesai=True
             else:
                 print("Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
                 inputSelesai=False
