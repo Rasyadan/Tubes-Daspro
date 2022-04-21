@@ -1,0 +1,21 @@
+def topup(user): #menghasilkan return berupa saldo akhir
+    username = str(input('Masukan username: '))
+    saldo = int(input('Masukan saldo: '))
+    found = True   
+    for i in range(arrayLen(parse(game))):
+        if parse(user)[i] == username:
+            found = True
+            i_username = i
+            saldoawal = int(parse(user)[i_username + 3])
+            break
+        else: #parse(user)[i] != username
+            found = False
+    
+    if found == True :
+        if saldoawal + saldo < 0 :
+            print('Masukan tidak valid.')
+        else: #found == False
+            print('Top up berhasil. Saldo', username , 'bertambah menjadi', str(saldoawal + saldo))
+            return str(saldoawal + saldo)       
+    else:
+        print('Username', str(username), 'tidak ditemukan.')
