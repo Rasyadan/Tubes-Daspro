@@ -1,5 +1,5 @@
 import lensplit
-arrayLen = lensplit.length
+arrayLen = lensplit.arrayLength
 
 def ArrayLoc(array,search): # Menghasilkan indeks dari data yang dicari(parameter search)
     found = False

@@ -1,13 +1,3 @@
-# Gunakan di file lain dengan meletakkan kode berikut (tanpa # dan contoh penggunaan):
-# import lensplit
-# txtlength = lensplit.length (Hanya bisa digunakan untuk mencari length dari string saja)
-# (Contoh penggunaan : txtlength("Test1") hasilnya 5)
-# split = lensplit.splittext 
-# (Contoh penggunaan : split("Test1;Test2", ";") dengan hasil ["Test1", "Test2"])
-# arrayLength = lensplit.arrayLength
-# Contoh penggunaan : arrayLength([0,1,2,3,4]) menghasilkan 5
-
-
 def splittext(text, separator):
     # Memisahkan string dengan pemisah tertentu
     # text : string, berupa teks yang akan di split
