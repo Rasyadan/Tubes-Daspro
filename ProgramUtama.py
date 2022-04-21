@@ -3,6 +3,7 @@ import csvparser
 toArray = csvparser.toArray
 tocsv = csvparser.tocsv
 from F02_Register import register
+from F02_Register import isAdmin
 from F03_Login import login
 from F04_TambahGame import tambahgame
 from F05_UbahGame import ubah_game
@@ -45,7 +46,7 @@ while exit==False:
     print("16. EXIT")
 
     pil=input("Ketik di sini: ")
-    if pil=="1":
+    if (pil == "1"):
         logged_in = login(user)
 
     else:
@@ -56,31 +57,35 @@ while exit==False:
             data_pengguna=login(user)
             print("Oke tunggu sebentar...")
             print("=="*24)
-            if pil=="2":
+            if (pil == "2"):
                 #IF ADMIN
                 user = register(user,data_pengguna)
-            elif pil=="3":
+            elif (pil == "3"):
                 #IF ADMIN
                 game = tambahgame(game,data_pengguna)
-            elif pil=="4":
-                # IF ADMIN :
-                game = ubah_game("Admin", game)
-            elif pil=="5":
-                # IF ADMIN
-                game = ubah_stok("Admin", game)
-            elif pil=="6":
+            elif (pil == "4"):
+                if (isAdmin(data_pengguna)):
+                    game = ubah_game("admin", game)
+                else :
+                    game = ubah_game("user", game)
+            elif (pil == "5"):
+                if (isAdmin(data_pengguna)):
+                    game = ubah_stok("admin", game)
+                else :
+                    game = ubah_stok("user", game)
+            elif (pil == "6"):
                 listGame(game)
-            # elif pil=="7":
-            # elif pil=="8":
-            elif pil=="9":
+            # elif (pil == "7"):
+            # elif (pil == "8"):
+            elif (pil == "9"):
                 game_pengguna(kepemilikan, game, data_pengguna) #array kepemilikan belum ada
-            elif pil=="10":
+            elif (pil == "10"):
                 CariGameSendiri(game)
-            elif pil=="11":
+            elif (pil == "11"):
                 CariGameDiToko(game)
-            # elif pil=="12":
-            # elif pil=="13":
-            # elif pil=="14":
+            # elif (pil == "12"):
+            # elif (pil == "13"):
+            # elif (pil == "14"):
 
             # elif pil=="15":
 

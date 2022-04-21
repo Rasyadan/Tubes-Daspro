@@ -10,14 +10,8 @@ def changeData(input,indeks,file_game): # Prosedur mengganti data pada array gam
     if (input != ""):
         file_game[indeks] = input
 
-def isAdmin (data_pengguna): # Cek apakah pengguna admin atau bukan
-    if (data_pengguna[4] == "admin"):
-        return True
-    else : 
-        return False
-
 def ubah_game(data_pengguna,file_game): # Prosedur mengubah data game pada memori
-    if (isAdmin(data_pengguna)) :
+    if (data_pengguna == "admin") :
         # Input Data
         game_id = input("Masukkan ID game : ")
         nama_game = input("Masukkan nama game : ")
@@ -38,7 +32,7 @@ def ubah_game(data_pengguna,file_game): # Prosedur mengubah data game pada memor
         else :
             print("Game ID tidak boleh kosong")
     else :
-        print("Hanya admin yang dapat mengubah game")
+        print("Hanya admin yang dapat mengubah game!")
     
     return(file_game)
 

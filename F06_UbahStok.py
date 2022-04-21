@@ -1,17 +1,11 @@
 import arrayFunctions
 arrayLoc = arrayFunctions.ArrayLoc
 
-def isAdmin (data_pengguna): # Cek apakah pengguna admin atau bukan
-    if (data_pengguna[4] == "admin"):
-        return True
-    else : 
-        return False
-
 def ubah_stok(data_pengguna,file_game): # Mengubah stok pada memori dengan parameter jenis pengguna dan file csv game
-    if (isAdmin(data_pengguna)): # Cek Admin atau bukan
+    if (data_pengguna == "admin"): 
         game_id = input("Masukkan Game ID : ")
         indeks = arrayLoc(file_game, game_id) 
-        if (indeks != -1):
+        if (indeks != -1): # Game tidak ditemukan
             stok = int(file_game[indeks+5]) # Indeks disesuaikan dengan urutan pada file
             pengubah_stok = int(input("Masukkan jumlah : "))
             if (pengubah_stok < 0):
