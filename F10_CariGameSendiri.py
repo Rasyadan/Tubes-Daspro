@@ -15,7 +15,7 @@ def CariGameSendiri(game):
 
     #memfilter game yang ada di inventory berdasarkan masukan user
     filtered = findIn(idgame, 0, game)
-    filtered = findIn(tahun, 4, filtered)
+    filtered = findIn(tahun, 3, filtered)
 
     if length(filtered) > 0:
         #ketika ditemukan hasil
@@ -30,5 +30,6 @@ def CariGameSendiri(game):
         #ketika tidak ada hasil yang sesuai dengan input user
         print('Tidak ada game di inventory-mu yang memenuhi kriteria')
 
+#untuk ngetes aja
 #game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
 #CariGameSendiri(game)

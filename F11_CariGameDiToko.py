@@ -12,16 +12,16 @@ def CariGameDiToko(game):
     #masukan berbagai kategori untuk mencari game yang ada di toko
     idgame = input('Masukkan ID Game: ')
     nama = input('Masukkan Nama Game: ')
-    harga = input('Masukkan Harga Game: ')
     kategori = input('Masukkan Kategori Game: ')
     tahun = input('Masukkan Tahun Rilis Game: ')
-
+    harga = input('Masukkan Harga Game: ')
+    
     #memfilter kategori berdasarkan input user
     filtered = findIn(idgame, 0, game)
     filtered = findIn(nama, 1, filtered)
-    filtered = findIn(harga, 2, filtered)
-    filtered = findIn(kategori, 3, filtered)
-    filtered = findIn(tahun, 4, filtered)
+    filtered = findIn(kategori, 2, filtered)
+    filtered = findIn(tahun, 3, filtered)
+    filtered = findIn(harga, 4, filtered)
 
     if length(filtered) > 0:
         #ketika ditemukan hasil setelah input user
@@ -37,5 +37,5 @@ def CariGameDiToko(game):
         #ketika tidak ada hasil yang memenuhi input kategori
         print('Tidak ada game di toko yang memenuhi kriteria')
 
-#game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
-#searchGameatStore(game)
+game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
+CariGameDiToko(game)
