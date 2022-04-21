@@ -153,7 +153,5 @@ def CekKemenangan(papan):
         print("Seri. Tidak ada yang menang.")
         return True
     
-
-tictactoe()
     
             
