@@ -22,7 +22,7 @@ arrayLength = lensplit.arrayLength
 
 
 # Load
-dir_name = sys.argv[0]
+dir_name = sys.argv[1]
 
 is_dir_tiada = True
 
