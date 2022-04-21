@@ -15,7 +15,7 @@ def removen(array): # Menghapus "\n dari data yang diperoleh dari csv"
     return(result)       
 
 
-def parse(array,jumlah_kategori): 
+def toArray(array,jumlah_kategori): 
     # Mengubah bentuk file csv menjadi array sehingga bisa diubah dalam memori/variabel
     # jumlah_kategori adalah jumlah kategori dalam sebuah file csv
     raw_csv_array = removen(array)

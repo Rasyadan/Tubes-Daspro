@@ -1,6 +1,6 @@
 # Import Modul-Modul yang telah dibuat
 import csvparser
-parse = csvparser.parse
+toArray = csvparser.toArray
 tocsv = csvparser.tocsv
 from F02_Register import register
 from F03_Login import login
@@ -18,8 +18,8 @@ arrayLength = lensplit.arrayLength
 
 
 # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi parse)
-game = parse((open("game.csv", "r").readlines()), 6) # Bentuk Array
-user = parse((open("user.csv", "r",).readlines()), 6) # Bentuk Array
+game = toArray((open("game.csv", "r").readlines()), 6) # Bentuk Array
+user = toArray((open("user.csv", "r",).readlines()), 6) # Bentuk Array
 
 
 # Program

@@ -1,7 +1,6 @@
 from lensplit import arrayLength
 from lensplit import length
 
-
 def listGame(file_game):
     skema_sort = input("Skema sorting : ")
     if (skema_sort == "tahun+" or skema_sort == "tahun-"):

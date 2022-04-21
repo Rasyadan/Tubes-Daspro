@@ -1,5 +1,4 @@
 import arrayFunctions
-from csvparser import parse
 arrayLoc = arrayFunctions.ArrayLoc
 
 def isAdmin (data_pengguna): # Cek apakah pengguna admin atau bukan

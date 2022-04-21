@@ -1,7 +1,5 @@
 #Import fungsi-fungsi dari modul lain
 import lensplit
-from csvparser import parse
-from csvparser import removen
 import arrayFunctions
 ArrayLoc = arrayFunctions.ArrayLoc
 length = lensplit.length
