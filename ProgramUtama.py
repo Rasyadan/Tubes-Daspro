@@ -15,6 +15,8 @@ from F07_ListingGame import listGame
 from F09_LihatGameSendiri import game_pengguna
 from F10_CariGameSendiri import CariGameSendiri
 from F11_CariGameDiToko import CariGameDiToko
+from F13_Help import Help
+from F16_Save import save
 
 import lensplit
 splittext = lensplit.splittext
@@ -104,10 +106,14 @@ else :              # Folder penyimpanan ditemukan
                 elif (pil == "11"):
                     CariGameDiToko(game)
                 # elif (pil == "12"):
-                # elif (pil == "13"):
+                elif (pil == "13"):
+                    Help(role,logged_in)
+                    
                 # elif (pil == "14"):
 
-                # elif pil=="15":
+                elif pil=="15":
+                    folder = str(input("Masukkan nama folder penyimpanan: "))
+                    save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
 
                 elif pil=="16":
                     isExit=exit()
