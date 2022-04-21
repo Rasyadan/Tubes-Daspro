@@ -1,3 +1,5 @@
+import parse from csvparser
+
 def topup(user): #menghasilkan return berupa saldo akhir
     username = str(input('Masukan username: '))
     saldo = int(input('Masukan saldo: '))
