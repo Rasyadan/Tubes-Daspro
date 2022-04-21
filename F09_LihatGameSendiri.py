@@ -7,9 +7,10 @@ def findIn(toFind, column, array):
     #res : array
 
     #Algoritma
+
     res = []
     #memeriksa komponen apakah ada atau tidak
-    if toFind != "":
+    if toFind != '':
         #ketika komponen terdapat pada salah satu kategori/kolom, maka array akan ditambahkan ke toFind
         for i in range(length(array)):
             if toFind == array[i][column]:
@@ -29,14 +30,17 @@ def game_pengguna(kepemilikan, games, userlogged):
     #temp : array
 
     # ALGORITMA
-    game_pengguna = findIn(str(userlogged[0]+1), 1, kepemilikan)
-
+    game_pengguna = findIn(str(userlogged[0] + 1), 1, kepemilikan)
+   #proses pencarian game pada inventory
     result = []
     for game in game_pengguna:
-        result += findIn(game[0], 0, games)[0]
+        result += [findIn(game[0], 0, games)[0]]
 
+    #ketika tidak ada game yang dimiliki
     if length(result) == 0:
-        print("Gaada gan")
+        print('Maaf, kamu belum membeli game. Ketik perintah', '\033[1m' + 'beli_game' + '\033[0m', 'untuk beli.')
+    
+    #ketika memiliki game di inventory, maka akan menampilkan list game
     else:
         for j in range(length(result)):
             print(result[j][0], end = " | ")
@@ -46,7 +50,8 @@ def game_pengguna(kepemilikan, games, userlogged):
             print("{:7.6}|".format(result[j][4]), end=" ")
             print(result[j][5])
 
+#untuk ngetes aja
 #user = [1, "azril", "Azril Multazam", "cepirit", "user", 10]
-#kepemilikan = [["GAME001", 2], ["GAME002", 2]]
+#kepemilikan = [["GAME001", '2'], ["GAME003", '2']]
 #game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
 #game_pengguna(kepemilikan, game, user)
