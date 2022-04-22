@@ -4,6 +4,10 @@ import lensplit
 def buat_file(filenya, array_pengganti, dir):
     # Menyimpan data yang awalnya berupa array ke file csv
 
+    # KAMUS LOKAL
+    # path, isi_file : string
+    
+    # ALGORITMA
     path = "./" + dir + "/" + str(filenya)
     isi_file = ""
 
@@ -20,6 +24,9 @@ def buat_file(filenya, array_pengganti, dir):
 def save(dir, arr_game, arr_riwayat, arr_user, arr_kepemilikan) :
     # Menyimpan data yang awalnya berupa array ke file csv dan menaruhnya di folder tujuan
 
+    # KAMUS LOKAL
+    # dir_tiada : boolean
+    
     dir_tiada = True    
 
     # cek apakah folder ada atau tidak
