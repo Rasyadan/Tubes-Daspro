@@ -5,10 +5,14 @@ def buat_file(filenya, array_pengganti, dir):
     # Menyimpan data yang awalnya berupa array ke file csv
 
     path = "./" + dir + "/" + str(filenya)
+    isi_file = ""
+
     file_diganti = open(path, "w")
 
     for i in lensplit.arrayLength(array_pengganti) :
-        file_diganti.write(array_pengganti[i])
+        isi_file += array_pengganti[i]
+        
+    file_diganti.write(isi_file)
 
     file_diganti.close()
 
