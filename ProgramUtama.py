@@ -63,9 +63,8 @@ else :              # Folder penyimpanan ditemukan
         print("11. TOP UP")
         print("12. LIHAT RIWAYAT PEMBELIAN")
         print("13. HELP")
-        print("14. LOAD")
-        print("15. SAVE")
-        print("16. EXIT")
+        print("14. SAVE")
+        print("15. EXIT")
 
         pil=input("Ketik di sini: ")
         if (pil == "1"):
@@ -109,13 +108,11 @@ else :              # Folder penyimpanan ditemukan
                 elif (pil == "13"):
                     Help(role,logged_in)
                     
-                # elif (pil == "14"):
-
-                elif pil=="15":
+                elif pil=="14":
                     folder = str(input("Masukkan nama folder penyimpanan: "))
                     save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
 
-                elif pil=="16":
+                elif pil=="15":
                     isExit=exit()
 
                 else:
