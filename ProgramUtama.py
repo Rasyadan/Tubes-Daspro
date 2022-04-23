@@ -49,7 +49,7 @@ else :              # Folder penyimpanan ditemukan
     # Program
     logged_in=False
     isExit=False
-    while exit==False:
+    while isExit==False:
         print("Silahkan memilih opsi di bawah untuk memulai binomo")
         print("1. LOGIN")
         print("2. REGISTER")
