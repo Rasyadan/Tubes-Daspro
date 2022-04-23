@@ -26,4 +26,5 @@ def tambahgame(game,data_pengguna):
         return (game)
     else:
         print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+        return (game)
 
