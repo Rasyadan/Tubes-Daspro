@@ -1,17 +1,17 @@
 import arrayLength from lensplit
 import toArray from csvparser
 
-def topup(user): #menghasilkan return berupa saldo akhir
+def topup(): #menghasilkan return berupa saldo akhir
     username = str(input('Masukan username: '))
     saldo = int(input('Masukan saldo: '))
     found = True   
-    for i in range(arrayLength(toArray(game,6,'array'))):
-        if toArray(user,6,'matriks')[i][1] == username:
+    for i in range(arrayLength(game)):
+        if user[i] == username:
             found = True
             i_username = i
-            saldoawal = int(toArray(user,6,'matriks')[i_username][5])
+            saldoawal = int(user[i_username + 4])
             break
-        else: #toArray(user)[i][1] != username
+        else: #user[i] != username
             found = False
     
     if found == True :
@@ -19,7 +19,7 @@ def topup(user): #menghasilkan return berupa saldo akhir
             print('Masukan tidak valid.')
         else: #found == False
             print('Top up berhasil. Saldo', username , 'bertambah menjadi', str(saldoawal + saldo))
-            toArray(user,6,'matriks')[i_username][5] = str(saldoawal+saldo)
-            return toArray(user,6,'matriks')[i_username][5]
+            user[i_username + 4] = str(saldoawal+saldo)
+            return user[i_username + 4]
     else:
         print('Username', str(username), 'tidak ditemukan.')
