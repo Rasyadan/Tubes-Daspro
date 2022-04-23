@@ -5,22 +5,19 @@ def ID():
     ID = str(input('Masukkan ID game :'))
     return ID
 
-def buy_game(ID, game, user) :
-    datakepemilikan = (open("d:\\kepemilikan.csv", "r").readlines())
-    kepemilikan = toArray(datakepemilikan,2,'array')
-    print(kepemilikan)
+def buy_game(ID) :
     #Searching lokasi dari ID game   
-    for i in range(arrayLength(toArray(game,6,'array'))):
-        if toArray(game,6,'array')[i] == ID:
+    for i in range(arrayLength(game):
+        if game[i] == ID:
             i_ID = i
-            price_ID = toArray(game,6,'array')[i_ID+4]
-            stok = toArray(game,6,'array')[i_ID+5]
+            price_ID = game[i_ID+4]
+            stok = game[i_ID+5]
             break   
     
     #Mencari saldo user 
-    for j in range(arrayLength(toArray(user,6,'array'))):
-        if toArray(user,6,'array')[j] == data_pengguna[1]:
-            saldo = toArray(user,6,'array')[j+4]
+    for j in range(arrayLength(user)):
+        if user[j] == data_pengguna[1]:
+            saldo = user[j+4]
     
     #Menentukan kepemilikan game dari user
     found = True
@@ -28,11 +25,13 @@ def buy_game(ID, game, user) :
         if kepemilikan[k] == ID and kepemilikan[k+1] == data_pengguna[0]:
             found = False
             
+            
+            
     if (found == True) and (saldo >= price_ID) and (stok != 0):
         print('Game','berhasil dibeli!')
     elif found == False:
         print('Anda sudah memiliki game tersebut')
-    elif saldo < price_ID:
+    elif saldo < price_ID: 
         print('Saldo anda tidak cukup untuk membeli Game tersebut!')
     elif stok == 0:
         print('Stok Game tersebut sedang habis!')
