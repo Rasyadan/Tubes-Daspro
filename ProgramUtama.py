@@ -17,6 +17,7 @@ from F10_CariGameSendiri import CariGameSendiri
 from F11_CariGameDiToko import CariGameDiToko
 from F13_Help import Help
 from F16_Save import save
+from B03_TicTacToe import tictactoe
 
 import lensplit
 splittext = lensplit.splittext
@@ -65,6 +66,7 @@ else :              # Folder penyimpanan ditemukan
         print("13. HELP")
         print("14. SAVE")
         print("15. EXIT")
+        print("16. Game Tic-Tac-Toe")
 
         pil=input("Ketik di sini: ")
         if (pil == "1"):
@@ -114,6 +116,8 @@ else :              # Folder penyimpanan ditemukan
 
                 elif pil=="15":
                     isExit=exit()
-
+                
+                elif (pil == "16"):
+                    tictactoe()
                 else:
                     print("Pilihan tidak tersedia")
