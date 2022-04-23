@@ -1,35 +1,30 @@
-import removen from csvparser
-import arrayLength from csvparser
-def parse_kepemilikan(array): #fungsi parser khusus kepemilikan
-    raw_csv_array = removen(array)
-    result_array = ["" for i in range(2*(arrayLength(raw_csv_array)))]
-    temp_array = ["" for i in range(2)]
+import arrayLength from lensplit
+import toArray from csvparser
+import login from F03_Login
+def ID():
+    ID = str(input('Masukkan ID game :'))
+    return ID
 
-    for i in range(0, arrayLength(raw_csv_array)):
-        temp_array = split(raw_csv_array[i], ";")
-        for j in range(1,3):
-            result_array[(j-1) + (2*(i))] = temp_array[j-1]
-    return(result_array)
-    
-def buy_game(game, user) :
-    kepemilikan = parse_kepemilikan((open("d:\\kepemilikan.csv", "r").readlines()))
-    ID = str(input('Masukkan ID Game: '))
+def buy_game(ID, game, user) :
+    datakepemilikan = (open("d:\\kepemilikan.csv", "r").readlines())
+    kepemilikan = toArray(datakepemilikan,2,'array')
     #Searching lokasi dari ID game   
-    for i in range(arrayLength(parse(game))):
-        if parse(game)[i] == ID:
+    for i in range(arrayLength(toArray(game,6,'array'))):
+        if toArray(game,6,'array')[i] == ID:
             i_ID = i
+            price_ID = toArray(game,6,'array')[i_ID+4]
+            stok = toArray(game,6,'array')[i_ID+5]
             break   
-    price_ID = parse(game)[i_ID+4]
-    stok = parse(game)[i_ID+5]
+    
     #Mencari saldo user 
-    for j in range(arrayLength(parse(user))):
-        if parse(user)[j] == login(user)[1]:
-            saldo = parse(user)[j+4]
+    for j in range(arrayLength(toArray(user,6,'array'))):
+        if toArray(user,6,'array')[j] == login(toArray(user,6,'array'))[1]:
+            saldo = toArray(user,6,'array')[j+4]
     
     #Menentukan kepemilikan game dari user
     found = True
     for k in range(arrayLength(kepemilikan)-1):
-        if kepemilikan[k] == ID and kepemilikan[k+1] == login(user)[0]:
+        if kepemilikan[k] == ID and kepemilikan[k+1] == login(toArray(user,6,'array'))[0]:
             found = False
             
     if (found == True) and (saldo >= price_ID) and (stok != 0):
