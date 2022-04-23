@@ -45,7 +45,7 @@ def register(user,data_pengguna):
             print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
         else:
             tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0]
-            print(f"Username berhasil ditambahkan.")
+            print("Data pengguna baru berhasil ditambahkan.")
             user = user + tambahan
         return (user)
     else:
