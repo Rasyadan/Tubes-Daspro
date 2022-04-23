@@ -1,4 +1,4 @@
-import save
+from F16_Save import save
 
 def exit():
     print("Apakah Anda ingin keluar dari game?")
