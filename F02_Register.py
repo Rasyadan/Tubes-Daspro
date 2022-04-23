@@ -4,9 +4,9 @@ from lensplit import length
 def isAdmin (data_pengguna):
 # untuk validasi role yang sesuai dengan fungsi
     if data_pengguna[4]=="admin":
-        True
+        return(True)
     else:
-        False
+        return(False)
 
 def isUsernameValid(username):
 # untuk validasi tiap character pada username 
@@ -36,9 +36,7 @@ def register(user,data_pengguna):
         password= input("Masukkan password: ")
     
         found=False
-        i=1
-        while i<=(arrayLength(user)-1) and not found:
-                for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
+        for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
                     if user[i]==username:
                         found=True
                     else:
@@ -46,10 +44,10 @@ def register(user,data_pengguna):
         if found==True :
             print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
         else:
-            tambahan = [arrayLength(user)/6+2,{username},{nama},{password},"user",0]
+            tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0]
             print(f"Username berhasil ditambahkan.")
             user = user + tambahan
         return (user)
     else:
-        print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
-
+        print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.")
+        print("Mintalah ke administrator untuk melakukan hal tersebut.")
