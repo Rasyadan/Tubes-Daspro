@@ -12,4 +12,4 @@ def riwayat(): #fungsi yang akan menampilkan riwayat
             print("{:30.32}|".format(data_riwayat[i]), end=" ")
             print("{:13.15}|".format(data_riwayat[i+1]), end=" ")
             print("{:7.6}|".format(data_riwayat[i+2]), end=" ")
-            print(data_riwayat[i+3])
+            print(data_riwayat[i+3],'   |')
