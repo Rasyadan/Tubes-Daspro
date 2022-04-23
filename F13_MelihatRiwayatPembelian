@@ -1,17 +1,12 @@
-def parse_riwayat(array): #fungsi parser khusus riwayat
-    raw_csv_array = removen(array)
-    result_array = ["" for i in range(5*(arrayLen(raw_csv_array)))]
-    temp_array = ["" for i in range(5)]
+import arrayLength from lensplit
+import split from lensplit
+import toArray from csvparser
 
-    for i in range(0, arrayLen(raw_csv_array)):
-        temp_array = split(raw_csv_array[i], ";")
-        for j in range(1,6):
-            result_array[(j-1) + (5*(i))] = temp_array[j-1]
-    return(result_array)
-def riwayat(): #fungsi yang akan menampilkan riwayat 
-    data_riwayat = parse_riwayat((open("d:\\riwayat.csv", "r").readlines()))
-    if arrayLen(data_riwayat) == 0:
+def riwayat(): #fungsi yang akan menampilkan riwayat
+    riwayat = (open("d:\\riwayat.csv", "r").readlines())
+    data_riwayat = toArray(riwayat,5,'array')
+    if arrayLength(data_riwayat) == 0: #jika tidak punya riwayat pembelian
         print('Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah','\033[1m' + 'beli_game' + '\033[0m', 'untuk membeli.')
-    else:
+    else: #jika memiliki riwayat pembelian
         for i in range(6,arrayLength(data_riwayat),5):
             print((str(int((i-1)/5)))+ '.',(data_riwayat)[i-1],' | ',(data_riwayat)[i],' | ',(data_riwayat)[i+1],' | ',(data_riwayat)[i+3])
