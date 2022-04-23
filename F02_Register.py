@@ -12,7 +12,7 @@ def isUsernameValid(username):
 # untuk validasi tiap character pada username 
     isValid=True
     for i in range (length(username)):
-        if 97<= ord(username[i]) <= 122 or 65<=ord(username[i])<=90 or 0<=ord(username[i])<=9 or username[i]=="_" or username[i]=="-":
+        if 97<= ord(username[i]) <= 122 or 65<=ord(username[i])<=90 or 0<=ord(username[i])<=9 or username[i]=="_" or username[i]=="-" or 48<=ord(username[i])<=57:
             isValid
         else:
             isValid=False
@@ -32,6 +32,26 @@ def register(user,data_pengguna):
             if isUsernameValid(username):
                 print("Username valid.")
                 isUsernameValid(username)==True
+        
+        password= input("Masukkan password: ")
+    
+        found=False
+        for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
+                    if user[i]==username:
+                        found=True
+                    else:
+                        i+=1
+        if found==True :
+            print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
+        else:
+            tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0]
+            print(f"Username berhasil ditambahkan.")
+            user = user + tambahan
+        return (user)
+    else:
+        print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.")
+        print("Mintalah ke administrator untuk melakukan hal tersebut.")
+
         
         password= input("Masukkan password: ")
     
