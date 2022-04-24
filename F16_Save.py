@@ -18,6 +18,7 @@ def buat_file(filenya, array_pengganti, dir):
         isi_file += array_pengganti[i]
         
     file_diganti.write(isi_file)
+    file_diganti.write("99999")
 
     file_diganti.close()
 
