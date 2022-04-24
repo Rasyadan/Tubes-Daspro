@@ -77,14 +77,14 @@ try :
 
             pil=input("Ketik di sini: ")
             if (pil == "1"):
+                logged_in = True
                 logged_in = login(user)
-                if logged_in==True:
-                    data_pengguna=logged_in
             else:
                 if logged_in==False:
                     print("Maaf, anda harus login terlebih dahulu")
                     print("=="*24)
                 else:
+                    data_pengguna=logged_in
                     print("Oke tunggu sebentar...")
                     print("=="*24)
                     if (pil == "2"):
