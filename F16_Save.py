@@ -13,7 +13,7 @@ def buat_file(filenya, array_pengganti, dir):
 
     file_diganti = open(path, "w")
 
-    for i in lensplit.arrayLength(array_pengganti) :
+    for i in range(lensplit.arrayLength(array_pengganti)) :
         isi_file += array_pengganti[i]
         
     file_diganti.write(isi_file)
