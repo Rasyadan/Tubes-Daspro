@@ -8,7 +8,7 @@ def buy_game(game, user, kepemilikan, data_pengguna) :
             i_ID = i
             price_ID = game[i_ID+4]
             stok = game[i_ID+5]
-            break   
+               
     
     #Mencari saldo user 
     for j in range(arrayLength(user)):
