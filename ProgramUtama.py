@@ -49,8 +49,8 @@ try :
         # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi toArray)
         game = toArray((open("game.csv", "r").readlines()), 6, "array") # Bentuk Array
         user = toArray((open("user.csv", "r",).readlines()), 6, "array") # Bentuk Array
-        kepemilikan = toArray((open("kepemilikan.csv", "r",).readlines()), 6, "array") # Bentuk Array
-        riwayat = toArray((open("riwayat.csv", "r",).readlines()), 6, "array") # Bentuk Array
+        kepemilikan = toArray((open("kepemilikan.csv", "r",).readlines()), 2, "array") # Bentuk Array
+        riwayat = toArray((open("riwayat.csv", "r",).readlines()), 5, "array") # Bentuk Array
 
 
         # Program
