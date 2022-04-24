@@ -34,11 +34,11 @@ try :
     is_dir_tiada = True
 
     for (root,directory,files) in os.walk("./"):
-
-        if dir_name == directory :
-            print("Loading...")
-            print('Selamat datang di antarmuka "Binomo"\n')
-            is_dir_tiada = False
+        for folder in direcotry:
+            if dir_name == folder :
+                print("Loading...")
+                print('Selamat datang di antarmuka "Binomo"\n')
+                is_dir_tiada = False
 
     if is_dir_tiada :   # Folder penyimpanan tidak ditemukan
         print('Folder ' + '"' + str(dir_name) + '"' + ' tidak ditemukan')
