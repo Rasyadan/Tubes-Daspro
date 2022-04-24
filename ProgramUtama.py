@@ -110,8 +110,10 @@ try :
                     elif (pil == "6"):
                         listGame(game)
                     elif (pil == "7"):
-                        if (isAdmin(data_pengguna[4] == "user")):
+                        if (isAdmin(data_pengguna[4]) == False):
                             buy_game(game, user, kepemilikan, data_pengguna)
+                        else :
+                            print("Hanya user yang bisa membeli game")
                     elif (pil == "8"):
                         game_pengguna(kepemilikan, game, data_pengguna)
                     elif (pil == "9"):
