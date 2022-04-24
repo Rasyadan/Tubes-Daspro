@@ -18,11 +18,12 @@ def exitBNMO(dir,game,riwayat,user,kepemilikan):
             exit=False
         else:
             inputValid=False
-            state2=input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ")
+            state2=input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ") # validasi input
             if state2=="Y" or state2=="y" or state2=="N" or state2=="n":
                 inputValid
                 if state2=="Y" or state2=="y":
                     save(dir,game,riwayat, user,kepemilikan)
+                    print("Perubahan data berhasil tersimpan.")
                     exit=True
                 else:
                     exit=True
@@ -30,11 +31,12 @@ def exitBNMO(dir,game,riwayat,user,kepemilikan):
                 inputValid=False
                 while not inputValid:    
                     print("Ketik (y/n)")
-                    state2=input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
+                    state2=input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)") # validasi input
                     if state2=="Y" or state2=="y" or state2=="N" or state2=="n":
                         inputValid=True
                         if state2=="Y" or state2=="y":
                             save(dir,game,riwayat,user,kepemilikan)
+                            print("Perubahan data berhasil tersimpan.")
                             exit=True
                         else:
                             exit=True

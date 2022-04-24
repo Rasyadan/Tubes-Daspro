@@ -1,5 +1,7 @@
 from F09_LihatGameSendiri import findIn
 from lensplit import length
+from csvparser import tocsv
+from csvparser import toArray
 
 def CariGameSendiri(game):
     #Program yang mencari game pada inventory sendiri
@@ -9,12 +11,14 @@ def CariGameSendiri(game):
     #filtered : array of array
 
     #Algoritma
+    file_games = tocsv(game, 6, "array")
+    file_games = toArray(file_games, 6, "matriks")
     #masukan kategori berdasarkan game ID dan tahun rilis
     idgame = input('Masukkan ID Game: ')
     tahun  = input('Masukkan Tahun Rilis Game: ')
 
     #memfilter game yang ada di inventory berdasarkan masukan user
-    filtered = findIn(idgame, 0, game)
+    filtered = findIn(idgame, 0, file_games)
     filtered = findIn(tahun, 3, filtered)
 
     if length(filtered) > 0:
