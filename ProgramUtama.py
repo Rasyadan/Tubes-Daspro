@@ -41,7 +41,7 @@ try :
             is_dir_tiada = False
 
     if is_dir_tiada :   # Folder penyimpanan tidak ditemukan
-        print('Folder' + '"' + str(dir_name) + '"' + 'tidak ditemukan')
+        print('Folder ' + '"' + str(dir_name) + '"' + ' tidak ditemukan')
         # Program langsung berakhir
 
     else :              # Folder penyimpanan ditemukan
