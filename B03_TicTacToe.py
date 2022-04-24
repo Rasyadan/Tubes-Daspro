@@ -112,9 +112,9 @@ def CekKemenangan(papan):
 
     # Cek Diagonal
     for i in range(3):
-        if (papan[i] == "X"):
+        if (papan[i][i] == "X"):
             countX += 1
-        elif (papan[i] == "O"):
+        elif (papan[i][i] == "O"):
             countO += 1
             
         if (countX == 3):
@@ -123,25 +123,24 @@ def CekKemenangan(papan):
         elif (countO == 3):
             print("Pemain O menang")
             return True
-        else :
-            countX = 0
-            countO = 0
+    countX = 0
+    countO = 0
     
     for i in range(3):
-        for j in range(2, -1, -1):
-            if (papan[i][j] == "X"):
-                countX += 1
-            elif (papan[i][j] == "O"):
-                countO += 1
+        j = 2 - i
+        if (papan[i][j] == "X"):
+            countX += 1
+        elif (papan[i][j] == "O"):
+            countO += 1
             
-            if (countX == 3):
-                print("Pemain X menang")
-                return True
-            elif (countO == 3):
-                print("Pemain O menang")
-                return True
-        countX = 0
-        countO = 0 
+        if (countX == 3):
+            print("Pemain X menang")
+            return True
+        elif (countO == 3):
+            print("Pemain O menang")
+            return True
+    countX = 0
+    countO = 0 
 
     # Cek Seri
     empty = 9
@@ -152,6 +151,4 @@ def CekKemenangan(papan):
     if (empty == 0):
         print("Seri. Tidak ada yang menang.")
         return True
-    
-    
             

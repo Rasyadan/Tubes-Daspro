@@ -34,23 +34,27 @@ try :
     is_dir_tiada = True
 
     for (root,directory,files) in os.walk("./"):
-
-        if dir_name == directory :
-            print("Loading...")
-            print('Selamat datang di antarmuka "Binomo"\n')
-            is_dir_tiada = False
+        for folder in directory:
+            if dir_name == folder :
+                print("Loading...")
+                print('Selamat datang di antarmuka "Binomo"\n')
+                is_dir_tiada = False
 
     if is_dir_tiada :   # Folder penyimpanan tidak ditemukan
         print('Folder ' + '"' + str(dir_name) + '"' + ' tidak ditemukan')
         # Program langsung berakhir
 
     else :              # Folder penyimpanan ditemukan
-
+        folder_path = os.path.dirname(os.path.abspath(__file__))
+        game_path = folder_path + "\\folder_csv\\game.csv"
+        user_path = folder_path + "\\folder_csv\\user.csv"
+        kepemilikan_path = folder_path + "\\folder_csv\\kepemilikan.csv"
+        riwayat_path = folder_path + "\\folder_csv\\riwayat.csv"
         # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi toArray)
-        game = toArray((open("game.csv", "r").readlines()), 6, "array") # Bentuk Array
-        user = toArray((open("user.csv", "r",).readlines()), 6, "array") # Bentuk Array
-        kepemilikan = toArray((open("kepemilikan.csv", "r",).readlines()), 6, "array") # Bentuk Array
-        riwayat = toArray((open("riwayat.csv", "r",).readlines()), 6, "array") # Bentuk Array
+        game = toArray((open(game_path, "r").readlines()), 6, "array") # Bentuk Array
+        user = toArray((open(user_path, "r",).readlines()), 6, "array") # Bentuk Array
+        kepemilikan = toArray((open(kepemilikan_path, "r",).readlines()), 2, "array") # Bentuk Array
+        riwayat = toArray((open(riwayat_path, "r",).readlines()), 5, "array") # Bentuk Array
 
 
         # Program
@@ -77,21 +81,23 @@ try :
 
             pil=input("Ketik di sini: ")
             if (pil == "1"):
+                logged_in = True
                 logged_in = login(user)
-                if logged_in==True:
-                    data_pengguna=logged_in
+
+            elif (pil == "13") and (logged_in==False):
+                Help("user",logged_in)
+                
             else:
                 if logged_in==False:
                     print("Maaf, anda harus login terlebih dahulu")
                     print("=="*24)
                 else:
+                    data_pengguna=logged_in
                     print("Oke tunggu sebentar...")
                     print("=="*24)
                     if (pil == "2"):
-                        if (isAdmin(data_pengguna)):
                             user = register(user,data_pengguna)
                     elif (pil == "3"):
-                        if (isAdmin(data_pengguna)):
                             game = tambahgame(game,data_pengguna)
                     elif (pil == "4"):
                         if (isAdmin(data_pengguna)):
@@ -106,8 +112,10 @@ try :
                     elif (pil == "6"):
                         listGame(game)
                     elif (pil == "7"):
-                        if (isAdmin(data_pengguna[4] == "user")):
+                        if (isAdmin(data_pengguna) == False):
                             buy_game(game, user, kepemilikan, data_pengguna)
+                        else :
+                            print("Hanya user yang bisa membeli game")
                     elif (pil == "8"):
                         game_pengguna(kepemilikan, game, data_pengguna)
                     elif (pil == "9"):
@@ -115,7 +123,10 @@ try :
                     elif (pil == "10"):
                         CariGameDiToko(game)
                     elif (pil == "11"):
-                        topup(game, user)
+                        if (isAdmin(data_pengguna)):
+                            topup(game, user)
+                        else :
+                            print("Hanya admin yang bisa top-up saldo")
                     elif (pil == "12"):
                         riwayatPembelian(riwayat)
                     elif (pil == "13"):
@@ -123,10 +134,14 @@ try :
 
                     elif pil=="14":
                         folder = str(input("Masukkan nama folder penyimpanan: "))
+                        print()
                         save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
+                        print("\nSaving...")
+                        print("Data telah disimpan pada folder: " + str(folder) + "!\n")
 
                     elif pil=="15":
-                        exitBNMO(folder, game, riwayat, user, kepemilikan) # Folder nya belum
+                        isExit = exitBNMO(folder, game, riwayat, user, kepemilikan) # Folder nya belum
+                            
 
                     elif (pil == "16"):
                         tictactoe()

@@ -1,6 +1,14 @@
 from F16_Save import save
 
 def exitBNMO(dir,game,riwayat,user,kepemilikan):
+    # Fungsi akan memberi pilihan pada pengguna untuk menyimpan 
+    # data (dengan fungsi save) atau tidak, lalu fungsi akan menghentikan loop program utama.
+    # KAMUS
+    # state1:integer
+    # state2:character
+    # inputValid,exit:boolean
+    # function save {menyimpan data pada memori berupa array ke file csv}
+    # ALGORITMA
     print("Apakah Anda ingin keluar dari game?")
     print("1. Ya")
     print("2. Tidak")
