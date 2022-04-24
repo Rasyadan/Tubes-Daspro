@@ -79,6 +79,10 @@ try :
             if (pil == "1"):
                 logged_in = True
                 logged_in = login(user)
+
+            elif (pil == "13") and (logged_in==False):
+                Help("user,logged_in)
+                
             else:
                 if logged_in==False:
                     print("Maaf, anda harus login terlebih dahulu")
@@ -123,7 +127,10 @@ try :
 
                     elif pil=="14":
                         folder = str(input("Masukkan nama folder penyimpanan: "))
+                        print()
                         save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
+                        print("\nSaving...")
+                        print("Data telah disimpan pada folder: " + str(folder) + "!\n")
 
                     elif pil=="15":
                         isExit = exitBNMO(folder, game, riwayat, user, kepemilikan) # Folder nya belum
