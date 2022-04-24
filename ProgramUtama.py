@@ -45,12 +45,16 @@ try :
         # Program langsung berakhir
 
     else :              # Folder penyimpanan ditemukan
-
+        folder_path = os.path.dirname(os.path.abspath(__file__))
+        game_path = folder_path + "\\folder_csv\\game.csv"
+        user_path = folder_path + "\\folder_csv\\user.csv"
+        kepemilikan_path = folder_path + "\\folder_csv\\kepemilikan.csv"
+        riwayat_path = folder_path + "\\folder_csv\\riwayat.csv"
         # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi toArray)
-        game = toArray((open("game.csv", "r").readlines()), 6, "array") # Bentuk Array
-        user = toArray((open("user.csv", "r",).readlines()), 6, "array") # Bentuk Array
-        kepemilikan = toArray((open("kepemilikan.csv", "r",).readlines()), 2, "array") # Bentuk Array
-        riwayat = toArray((open("riwayat.csv", "r",).readlines()), 5, "array") # Bentuk Array
+        game = toArray((open(game_path, "r").readlines()), 6, "array") # Bentuk Array
+        user = toArray((open(user_path, "r",).readlines()), 6, "array") # Bentuk Array
+        kepemilikan = toArray((open(kepemilikan_path, "r",).readlines()), 2, "array") # Bentuk Array
+        riwayat = toArray((open(riwayat_path, "r",).readlines()), 5, "array") # Bentuk Array
 
 
         # Program
@@ -119,7 +123,10 @@ try :
                     elif (pil == "10"):
                         CariGameDiToko(game)
                     elif (pil == "11"):
-                        topup(game, user)
+                        if (isAdmin(data_pengguna)):
+                            topup(game, user)
+                        else :
+                            print("Hanya admin yang bisa top-up saldo")
                     elif (pil == "12"):
                         riwayatPembelian(riwayat)
                     elif (pil == "13"):
