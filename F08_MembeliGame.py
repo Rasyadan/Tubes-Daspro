@@ -1,18 +1,14 @@
-import arrayLength from lensplit
-import toArray from csvparser
-import login from F03_Login
-def ID():
-    ID = str(input('Masukkan ID game :'))
-    return ID
+from lensplit import arrayLength
 
-def buy_game(ID) :
+def buy_game(game, user, kepemilikan, data_pengguna) :
+    ID = str(input('Masukkan ID game :'))
     #Searching lokasi dari ID game   
-    for i in range(arrayLength(game):
+    for i in range(arrayLength(game)):
         if game[i] == ID:
             i_ID = i
             price_ID = game[i_ID+4]
             stok = game[i_ID+5]
-            break   
+               
     
     #Mencari saldo user 
     for j in range(arrayLength(user)):
@@ -36,4 +32,3 @@ def buy_game(ID) :
     elif stok == 0:
         print('Stok Game tersebut sedang habis!')
 
-buy_game(ID(),game,user)

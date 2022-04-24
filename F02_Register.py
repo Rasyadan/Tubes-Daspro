@@ -45,29 +45,10 @@ def register(user,data_pengguna):
             print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
         else:
             tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0]
-            print("Data pengguna baru berhasil ditambahkan.")
-            user = user + tambahan
-        return (user)
-    else:
-        print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.")
-        print("Mintalah ke administrator untuk melakukan hal tersebut.")
-
-        
-        password= input("Masukkan password: ")
-    
-        found=False
-        for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
-                    if user[i]==username:
-                        found=True
-                    else:
-                        i+=1
-        if found==True :
-            print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
-        else:
-            tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0]
             print(f"Username berhasil ditambahkan.")
             user = user + tambahan
         return (user)
     else:
         print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.")
         print("Mintalah ke administrator untuk melakukan hal tersebut.")
+

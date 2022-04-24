@@ -1,7 +1,6 @@
-import arrayLength from lensplit
-import toArray from csvparser
+from lensplit import arrayLength 
 
-def topup(): #menghasilkan return berupa saldo akhir
+def topup(game, user): #menghasilkan return berupa saldo akhir
     username = str(input('Masukan username: '))
     saldo = int(input('Masukan saldo: '))
     found = True   
