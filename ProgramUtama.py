@@ -34,7 +34,7 @@ try :
     is_dir_tiada = True
 
     for (root,directory,files) in os.walk("./"):
-        for folder in direcotry:
+        for folder in directory:
             if dir_name == folder :
                 print("Loading...")
                 print('Selamat datang di antarmuka "Binomo"\n')
