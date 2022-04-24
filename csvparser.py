@@ -36,8 +36,8 @@ def toArray(array,jumlah_kategori,pilihan):
     
     return(result_array)
 
-def tocsv(array, jumlah_kategori, pilihan): 
-    if (pilihan == "array"):
+def tocsv(array, jumlah_kategori, bentuk_array): 
+    if (bentuk_array == "array"):
         #Mengubah bentuk array data menjadi bentuk csv
         csv_array = ["" for i in range(arrayLen(array)//jumlah_kategori)]
         temp_string = ""
