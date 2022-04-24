@@ -1,4 +1,6 @@
 from lensplit import length
+from csvparser import tocsv
+from csvparser import toArray
 
 def findIn(toFind, column, array):
     #Fungsi untuk mencari salah satu komponen pada suatu array
@@ -30,11 +32,13 @@ def game_pengguna(kepemilikan, games, userlogged):
     #temp : array
 
     # ALGORITMA
+    file_games = tocsv(games, 6, "array")
+    file_games = toArray(file_games, 6, "matriks")
     game_pengguna = findIn(str(userlogged[0] + 1), 1, kepemilikan)
    #proses pencarian game pada inventory
     result = []
     for game in game_pengguna:
-        result += [findIn(game[0], 0, games)[0]]
+        result += [findIn(game[0], 0, file_games)[0]]
 
     #ketika tidak ada game yang dimiliki
     if length(result) == 0:
