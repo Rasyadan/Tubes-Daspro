@@ -81,7 +81,7 @@ try :
                 logged_in = login(user)
 
             elif (pil == "13") and (logged_in==False):
-                Help("user,logged_in)
+                Help("user",logged_in)
                 
             else:
                 if logged_in==False:
