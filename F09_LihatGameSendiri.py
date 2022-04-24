@@ -34,7 +34,10 @@ def game_pengguna(kepemilikan, games, userlogged):
     # ALGORITMA
     file_games = tocsv(games, 6, "array")
     file_games = toArray(file_games, 6, "matriks")
-    game_pengguna = findIn(str(userlogged[0] + 1), 1, kepemilikan)
+    file_kepemilikan = tocsv(kepemilikan, 2, "array")
+    file_kepemilikan = toArray(file_kepemilikan, 2, "matriks")
+    
+    game_pengguna = findIn(userlogged[0], 1, file_kepemilikan)
    #proses pencarian game pada inventory
     result = []
     for game in game_pengguna:
