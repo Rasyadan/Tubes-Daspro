@@ -36,16 +36,29 @@ def toArray(array,jumlah_kategori,pilihan):
     
     return(result_array)
 
-def tocsv(array, jumlah_kategori): 
-    #Mengubah bentuk array data menjadi bentuk csv
-    csv_array = ["" for i in range(arrayLen(array)//jumlah_kategori)]
-    temp_string = ""
-    for i in range(arrayLen(array)//jumlah_kategori):
+def tocsv(array, jumlah_kategori, pilihan): 
+    if (pilihan == "array"):
+        #Mengubah bentuk array data menjadi bentuk csv
+        csv_array = ["" for i in range(arrayLen(array)//jumlah_kategori)]
         temp_string = ""
-        for j in range(jumlah_kategori):
-            if (j != 5) :
-                temp_string += (array[j + (jumlah_kategori*i)] + ";") # Menambahkan separator ";"
-            else :
-                temp_string += array[j + (jumlah_kategori*i)] + "\n" # Menambahkan endline \n untuk akhir data csv
-        csv_array[i] = temp_string
-    return(csv_array)
+        for i in range(arrayLen(array)//jumlah_kategori):
+            temp_string = ""
+            for j in range(jumlah_kategori):
+                if (j != jumlah_kategori) :
+                    temp_string += (str(array[j + (jumlah_kategori*i)]) + ";") # Menambahkan separator ";"
+                else :
+                    temp_string += str(array[j + (jumlah_kategori*i)]) + "\n" # Menambahkan endline \n untuk akhir data csv
+            csv_array[i] = temp_string
+        return(csv_array)
+    else :
+        csv_array = ["" for i in range(arrayLen(array))]
+        temp_string = ""
+        for i in range(arrayLen(array)):
+            temp_string = ""
+            for j in range(jumlah_kategori):
+                if (j != jumlah_kategori) :
+                    temp_string += (str(array[i][j]) + ";") # Menambahkan separator ";"
+                else :
+                    temp_string += (str(array[i][j]) + "\n") # Menambahkan endline \n untuk akhir data csv
+            csv_array[i] = temp_string
+        return(csv_array)
