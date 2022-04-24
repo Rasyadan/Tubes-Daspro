@@ -151,6 +151,4 @@ def CekKemenangan(papan):
     if (empty == 0):
         print("Seri. Tidak ada yang menang.")
         return True
-    
-tictactoe()
             
