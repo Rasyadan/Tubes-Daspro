@@ -119,7 +119,7 @@ try :
                     elif (pil == "8"):
                         game_pengguna(kepemilikan, game, data_pengguna)
                     elif (pil == "9"):
-                        CariGameSendiri(game)
+                        CariGameSendiri(kepemilikan, game, data_pengguna)
                     elif (pil == "10"):
                         CariGameDiToko(game)
                     elif (pil == "11"):

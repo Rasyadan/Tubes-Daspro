@@ -3,7 +3,7 @@ from lensplit import length
 from csvparser import tocsv
 from csvparser import toArray
 
-def CariGameSendiri(game):
+def CariGameSendiri(kepemilikan, games, userlogged):
     #Program yang mencari game pada inventory sendiri
 
     #Kamus Lokal
@@ -11,14 +11,18 @@ def CariGameSendiri(game):
     #filtered : array of array
 
     #Algoritma
-    file_games = tocsv(game, 6, "array")
+    file_games = tocsv(games, 6, "array")
     file_games = toArray(file_games, 6, "matriks")
+    file_kepemilikan = tocsv(kepemilikan, 2, "array")
+    file_kepemilikan = toArray(file_kepemilikan, 2, "matriks")
+    
+    game_pengguna = findIn(userlogged[0], 1, file_kepemilikan)
     #masukan kategori berdasarkan game ID dan tahun rilis
     idgame = input('Masukkan ID Game: ')
     tahun  = input('Masukkan Tahun Rilis Game: ')
 
     #memfilter game yang ada di inventory berdasarkan masukan user
-    filtered = findIn(idgame, 0, file_games)
+    filtered = findIn(idgame, 0, game_pengguna)
     filtered = findIn(tahun, 3, filtered)
 
     if length(filtered) > 0:
