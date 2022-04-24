@@ -92,10 +92,8 @@ try :
                     print("Oke tunggu sebentar...")
                     print("=="*24)
                     if (pil == "2"):
-                        if (isAdmin(data_pengguna)):
                             user = register(user,data_pengguna)
                     elif (pil == "3"):
-                        if (isAdmin(data_pengguna)):
                             game = tambahgame(game,data_pengguna)
                     elif (pil == "4"):
                         if (isAdmin(data_pengguna)):
@@ -110,7 +108,7 @@ try :
                     elif (pil == "6"):
                         listGame(game)
                     elif (pil == "7"):
-                        if (isAdmin(data_pengguna[4]) == False):
+                        if (isAdmin(data_pengguna) == False):
                             buy_game(game, user, kepemilikan, data_pengguna)
                         else :
                             print("Hanya user yang bisa membeli game")
