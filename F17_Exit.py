@@ -1,6 +1,6 @@
 from F16_Save import save
 
-def exit():
+def exit(dir,game,riwayat,user,kepemilikan):
     print("Apakah Anda ingin keluar dari game?")
     print("1. Ya")
     print("2. Tidak")
@@ -14,7 +14,7 @@ def exit():
             if state2=="Y" or state2=="y" or state2=="N" or state2=="n":
                 inputValid
                 if state2=="Y" or state2=="y":
-                    save()
+                    save(dir,game,riwayat, user,kepemilikan)
                     exit=True
                 else:
                     exit=True
@@ -26,7 +26,7 @@ def exit():
                     if state2=="Y" or state2=="y" or state2=="N" or state2=="n":
                         inputValid=True
                         if state2=="Y" or state2=="y":
-                            save()
+                            save(dir,game,riwayat,user,kepemilikan)
                             exit=True
                         else:
                             exit=True
