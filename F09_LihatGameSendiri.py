@@ -30,6 +30,7 @@ def game_pengguna(kepemilikan, games, userlogged):
     #Kamus Lokal
     #find_game, game_found : array of array
     #temp : array
+    #file_kepemilikan; file_games : array
 
     # ALGORITMA
     file_games = tocsv(games, 6, "array")

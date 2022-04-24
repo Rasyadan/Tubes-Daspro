@@ -9,6 +9,7 @@ def CariGameSendiri(kepemilikan, games, userlogged):
     #Kamus Lokal
     #idgame, tahun : string
     #filtered : array of array
+    #file_kepemilikan; file_games : array
 
     #Algoritma
     file_games = tocsv(games, 6, "array")
@@ -17,14 +18,18 @@ def CariGameSendiri(kepemilikan, games, userlogged):
     file_kepemilikan = toArray(file_kepemilikan, 2, "matriks")
     
     game_pengguna = findIn(userlogged[0], 1, file_kepemilikan)
+    
+    result = []
+    for game in game_pengguna:
+        result += [findIn(game[0], 0, file_games)[0]]
+
     #masukan kategori berdasarkan game ID dan tahun rilis
     idgame = input('Masukkan ID Game: ')
     tahun  = input('Masukkan Tahun Rilis Game: ')
 
     #memfilter game yang ada di inventory berdasarkan masukan user
-    filtered = findIn(idgame, 0, game_pengguna)
+    filtered = findIn(idgame, 0, result)
     filtered = findIn(tahun, 3, filtered)
-
     if length(filtered) > 0:
         #ketika ditemukan hasil
         #mencetak tabel sesuai dengan hasil

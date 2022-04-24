@@ -9,6 +9,7 @@ def CariGameDiToko(game):
     #Kamus Lokal
     #idgame, nama, harga, kategori, tahun : string
     #filtered : array of array
+    #file_games : array
 
     #Algoritma
     file_games = tocsv(game, 6, "array")
