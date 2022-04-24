@@ -16,11 +16,11 @@ def listGame(file_game):
                 if (j != 6*i + 5):
                     # Penggunaan (* " ") Hanya untuk visual output
                     if (j == 6*i + 1):
-                        print(file_game[j] + (35-length(file_game[j]))*" " + "| ", end="") 
+                        print(file_game[j] + (35-length(str(file_game[j])))*" " + "| ", end="") 
                     elif (j == 6*i + 2):
-                        print(file_game[j] + (20-length(file_game[j]))*" " + "| ", end="")
+                        print(file_game[j] + (20-length(str(file_game[j])))*" " + "| ", end="")
                     elif (j == 6*i + 3):
-                        print(file_game[j] + (8-length(file_game[j]))*" " + "| ", end="")
+                        print(str(file_game[j]) + (8-length(str(file_game[j])))*" " + "| ", end="")
                     else :
                         print(f"{file_game[j]} | ", end="")
                 else :
@@ -39,11 +39,11 @@ def listGame(file_game):
                 if (j != 6*i + 5):
                     # Penggunaan (* " ") Hanya untuk visual output
                     if (j == 6*i + 1):
-                        print(file_game[j] + (35-length(file_game[j]))*" " + "| ", end="") 
+                        print(file_game[j] + (35-length(str(file_game[j])))*" " + "| ", end="") 
                     elif (j == 6*i + 2):
-                        print(file_game[j] + (20-length(file_game[j]))*" " + "| ", end="")
+                        print(file_game[j] + (20-length(str(file_game[j])))*" " + "| ", end="")
                     elif (j == 6*i + 3):
-                        print(file_game[j] + (8-length(file_game[j]))*" " + "| ", end="")
+                        print(str(file_game[j]) + (8-length(str(file_game[j])))*" " + "| ", end="")
                     else :
                         print(f"{file_game[j]} | ", end="")
                 else :
@@ -60,15 +60,18 @@ def InsertionSort(starting_index, file_game, urutan):
                 temp_array[k] = file_game[i+k-(starting_index-12)]
             j = i - 6
             if (urutan == "Ascending"):
-                while (j >= 6 and current_num < (file_game[j]) ):
-                    for k in range(6):
-                        file_game[j+k+(18 - starting_index)] = file_game[j+k-(starting_index - 12)]  
-                    j = j - 6
-                for k in range(6):    
-                    file_game[j+k+(18 - starting_index)] = temp_array[k]
+                try :
+                    while (j >= 6 and int(current_num) < int(file_game[j]) ):
+                        for k in range(6):
+                            file_game[j+k+(18 - starting_index)] = file_game[j+k-(starting_index - 12)]  
+                        j = j - 6
+                    for k in range(6):    
+                        file_game[j+k+(18 - starting_index)] = temp_array[k]
+                except :
+                    continue
 
             elif (urutan == "Descending"):
-                while (current_num > file_game[j] and j >= 6):
+                while (j >= 6 and int(current_num) > int(file_game[j])):
                     for k in range(6):
                         file_game[j+k+(18 - starting_index)] = file_game[j+k-(starting_index - 12)]  
                     j = j - 6
