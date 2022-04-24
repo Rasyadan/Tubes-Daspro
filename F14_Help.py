@@ -2,6 +2,8 @@ def Help(role, logged_in):
     # Fungsi ini menampilkan menu help yang berisi panduan penggunaan sistem
     # Parameter input dari prosedur ini yaitu role dan status login dari pengguna 
     
+    print("\n============ HELP ============")
+
     if logged_in == False :    # Tampilan menu help jika penggguna belum login
         print("1. login - Untuk melakukan login ke dalam sistem")
         print("2. help - Untuk menampilkan panduan penggunaan sistem")
@@ -31,3 +33,5 @@ def Help(role, logged_in):
             print("8. help - Untuk menampilkan panduan penggunaan sistem")
             print("9. save - Untuk melakukan penyimpanan data ke dalam file setelah dilakukan perubahan")
             print("10. exit - Untuk keluar dari aplikasi")
+
+        print()
