@@ -37,5 +37,5 @@ def CariGameDiToko(game):
         #ketika tidak ada hasil yang memenuhi input kategori
         print('Tidak ada game di toko yang memenuhi kriteria')
 
-game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
-CariGameDiToko(game)
+#game = [["GAME001", "Azril Multazam Pambudi", "Kategori", "2022", "10000", "0"], ["GAME003", "Tes", "Kategori", "2022", "10000", "2"]]
+#CariGameDiToko(game)
