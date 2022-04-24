@@ -25,7 +25,7 @@ def ubah_game(data_pengguna,file_game): # Prosedur mengubah data game pada memor
                 changeData(kategori, indeks+2, file_game)
                 changeData(tahun_rilis, indeks+3, file_game)
                 changeData(harga, indeks+4, file_game)
-                print(f"Data game {nama_game} dengan ID {game_id} berhasil diubah")
+                print(f"Data game {file_game[indeks+1]} dengan ID {game_id} berhasil diubah")
             else :
                 print(f"Game dengan ID {game_id} tidak ditemukan")
         else :
