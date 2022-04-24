@@ -1,10 +1,8 @@
 #Import fungsi-fungsi dari modul lain
-import lensplit
+
 import arrayFunctions
 ArrayLoc = arrayFunctions.ArrayLoc
-length = lensplit.length
-split = lensplit.splittext
-arrayLen = lensplit.arrayLength
+
 
 def changeData(input,indeks,file_game): # Prosedur mengganti data pada array game
     if (input != ""):
