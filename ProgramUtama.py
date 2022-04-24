@@ -126,8 +126,8 @@ try :
                         save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
 
                     elif pil=="15":
-                        if(exitBNMO(folder, game, riwayat, user, kepemilikan)): # Folder nya belum
-                            exit()
+                        isExit = exitBNMO(folder, game, riwayat, user, kepemilikan) # Folder nya belum
+                            
 
                     elif (pil == "16"):
                         tictactoe()
