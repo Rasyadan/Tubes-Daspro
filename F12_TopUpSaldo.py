@@ -19,6 +19,6 @@ def topup(game, user): #menghasilkan return berupa saldo akhir
         else: #found == False
             print('Top up berhasil. Saldo', username , 'bertambah menjadi', str(saldoawal + saldo))
             user[i_username + 4] = str(saldoawal+saldo)
-            return user[i_username + 4]
+            return user
     else:
         print('Username', str(username), 'tidak ditemukan.')
