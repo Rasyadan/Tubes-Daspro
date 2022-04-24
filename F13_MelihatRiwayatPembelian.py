@@ -1,12 +1,10 @@
-import arrayLength from lensplit
-import split from lensplit
-import toArray from csvparser
+from lensplit import arrayLength 
 
-def riwayat(): #fungsi yang akan menampilkan riwayat
-    if arrayLength(riwayat) == 0: #jika tidak punya riwayat pembelian
+def riwayatPembelian(data_riwayat): #fungsi yang akan menampilkan riwayat
+    if arrayLength(data_riwayat) == 0: #jika tidak punya riwayat pembelian
         print('Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah','\033[1m' + 'beli_game' + '\033[0m', 'untuk membeli.')
     else: #jika memiliki riwayat pembelian
-        for i in range(6,arrayLength(riwayat),5):
+        for i in range(6,arrayLength(data_riwayat),5):
             print((str(int((i-1)/5)))+ '.',data_riwayat[i-1], end = " | ")
             print("{:10.12}|".format(data_riwayat[i-1]), end=" ")
             print("{:30.32}|".format(data_riwayat[i]), end=" ")

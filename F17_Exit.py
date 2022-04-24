@@ -1,6 +1,6 @@
 from F16_Save import save
 
-def exit(dir,game,riwayat,user,kepemilikan):
+def exitBNMO(dir,game,riwayat,user,kepemilikan):
     print("Apakah Anda ingin keluar dari game?")
     print("1. Ya")
     print("2. Tidak")

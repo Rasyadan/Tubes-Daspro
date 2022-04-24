@@ -1,7 +1,6 @@
+# Import Modul-Modul yang telah dibuat
 import os
 import sys
-
-# Import Modul-Modul yang telah dibuat
 import csvparser
 toArray = csvparser.toArray
 tocsv = csvparser.tocsv
@@ -12,11 +11,15 @@ from F04_TambahGame import tambahgame
 from F05_UbahGame import ubah_game
 from F06_UbahStok import ubah_stok
 from F07_ListingGame import listGame
+from F08_MembeliGame import buy_game
 from F09_LihatGameSendiri import game_pengguna
 from F10_CariGameSendiri import CariGameSendiri
 from F11_CariGameDiToko import CariGameDiToko
-from F13_Help import Help
+from F12_TopUpSaldo import topup
+from F13_MelihatRiwayatPembelian import riwayatPembelian
+from F14_Help import Help
 from F16_Save import save
+from F17_Exit import exitBNMO
 from B03_TicTacToe import tictactoe
 
 import lensplit
@@ -39,7 +42,7 @@ if is_dir_tiada :   # Folder penyimpanan tidak ditemukan
 
 else :              # Folder penyimpanan ditemukan
     
-    # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi parse)
+    # Membaca dan memasukkan data pada csv ke dalam variabel dan mengubahnya ke bentuk array (dengan fungsi toArray)
     game = toArray((open("game.csv", "r").readlines()), 6, "array") # Bentuk Array
     user = toArray((open("user.csv", "r",).readlines()), 6, "array") # Bentuk Array
     kepemilikan = toArray((open("kepemilikan.csv", "r",).readlines()), 6, "array") # Bentuk Array
@@ -81,11 +84,11 @@ else :              # Folder penyimpanan ditemukan
                 print("Oke tunggu sebentar...")
                 print("=="*24)
                 if (pil == "2"):
-                    #IF ADMIN
-                    user = register(user,data_pengguna)
+                    if (isAdmin(data_pengguna)):
+                        user = register(user,data_pengguna)
                 elif (pil == "3"):
-                    #IF ADMIN
-                    game = tambahgame(game,data_pengguna)
+                    if (isAdmin(data_pengguna)):
+                        game = tambahgame(game,data_pengguna)
                 elif (pil == "4"):
                     if (isAdmin(data_pengguna)):
                         game = ubah_game("admin", game)
@@ -98,24 +101,28 @@ else :              # Folder penyimpanan ditemukan
                         game = ubah_stok("user", game)
                 elif (pil == "6"):
                     listGame(game)
-                # elif (pil == "7"):
-                # elif (pil == "8"):
+                elif (pil == "7"):
+                    if (isAdmin(data_pengguna[4] == "user")):
+                        buy_game(game, user, kepemilikan, data_pengguna)
+                elif (pil == "8"):
+                    game_pengguna(kepemilikan, game, data_pengguna)
                 elif (pil == "9"):
-                    game_pengguna(kepemilikan, game, data_pengguna) #array kepemilikan belum ada
-                elif (pil == "10"):
                     CariGameSendiri(game)
-                elif (pil == "11"):
+                elif (pil == "10"):
                     CariGameDiToko(game)
-                # elif (pil == "12"):
+                elif (pil == "11"):
+                    topup(game, user)
+                elif (pil == "12"):
+                    riwayatPembelian(riwayat)
                 elif (pil == "13"):
-                    Help(role,logged_in)
+                    Help(data_pengguna[4],logged_in)
                     
                 elif pil=="14":
                     folder = str(input("Masukkan nama folder penyimpanan: "))
                     save(folder,arr_game=game,arr_riwayat=riwayat,arr_kepemilikan=kepemilikan,arr_user=user)
 
                 elif pil=="15":
-                    isExit=exit()
+                    exitBNMO(, game, riwayat, user, kepemilikan) # Folder nya belum
                 
                 elif (pil == "16"):
                     tictactoe()
