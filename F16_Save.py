@@ -1,5 +1,6 @@
 import os
 import lensplit
+import csvparser
 
 def buat_file(filenya, array_pengganti, dir):
     # Menyimpan data yang awalnya berupa array ke file csv
@@ -28,7 +29,11 @@ def save(dir, arr_game, arr_riwayat, arr_user, arr_kepemilikan) :
     # dir_tiada : boolean
     
     dir_tiada = True    
-
+    arr_game=csvparser.tocsv(arr_game,6,"array")
+    arr_user=csvparser.tocsv(arr_user,6,"array")
+    arr_riwayat=csvparser.tocsv(arr_riwayat,5,"array")
+    arr_kepemilikan=csvparser.tocsv(arr_kepemilikan,2,"array")
+    
     # cek apakah folder ada atau tidak
     for (root,directory,files) in os.walk("./", topdown=True):
         for i in directory:
