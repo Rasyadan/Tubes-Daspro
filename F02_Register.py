@@ -38,30 +38,37 @@ def register(user,data_pengguna):
         username = input("Masukkan username: ")
         # validasi username
         if isUsernameValid(username):
-            print("Username valid.")
+            print(end="")
         else:
             print("Maaf, username hanya dapat mengandung alfabet A-Za-z, underscore “_”, strip “-”, dan angka 0-9.")
-        while isUsernameValid(username)==False:
+        while isUsernameValid(username)==False: # input username sampai benar
             username=input("Masukkan username: ")
             if isUsernameValid(username):
-                print("Username valid.")
                 isUsernameValid(username)==True
         
         password= input("Masukkan password: ")
     
-        found=False # mencari apakah username sudah terpakai atau belum
-        for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
-                    if user[i]==username:
-                        found=True
-                    else:
-                        i+=1
-        if found==True : # jika username sudah terpakai
-            print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
-        else: # jika username tersedia
-            tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0] # data_pengguna baru
-            print(f"Username berhasil ditambahkan.")
-            user = user + tambahan
+        found=True # mencari apakah username sudah terpakai atau belum
+        while found==True: # input username sampai username tersedia (tidak ada di file csv)
+            found=False
+            for i in range (7,arrayLength(user),6): # mengakses username mulai dari user id pertama
+                        if user[i]==username:
+                            found=True
+                        else:
+                            i+=1
+            if found==True : # jika username sudah terpakai
+                print(f"Username {username} sudah terpakai, silakan menggunakan username lain.")
+                username=input("Masukkan username: ")
+                password=input("Masukkan password: ")
+            else: # jika username tersedia
+                tambahan = [round(arrayLength(user)/6),username,nama,password,"user",0] # data_pengguna baru
+                print(f"Username berhasil ditambahkan.")
+                print("=="*24)
+                print()
+                user = user + tambahan
         return (user)
     else: # jika bukan diakses admin
         print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut.")
         print("Mintalah ke administrator untuk melakukan hal tersebut.")
+        print("=="*24)
+        print()
