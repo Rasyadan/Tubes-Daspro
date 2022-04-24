@@ -24,15 +24,20 @@ def login(user):
                     role=user[i+3]
                     saldo=user[i+4]
                     data_pengguna= [id,username,nama,password,role,saldo]
+                    print("=="*24)
+                    print()
                     print("Halo",data_pengguna[2]+"!","Selamat datang di Binomo")
                     logged_in=True
-                    print("=="*24)
                     found=True
                     return data_pengguna # jika berhasil login maka data_pengguna direturn
             else:
                     print("Password Anda salah.")
+                    print("=="*24)
+                    print()
                     found=True
  
     if not found:
         print("Username tidak ditemukan")
+        print("=="*24)
+        print()
     return logged_in==False # jika logged_in==False, pengguna tidak dapat mengakses fitur lain selain log in
