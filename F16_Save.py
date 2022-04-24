@@ -15,10 +15,11 @@ def buat_file(filenya, array_pengganti, dir):
     file_diganti = open(path, "w")
 
     for i in range(lensplit.arrayLength(array_pengganti)) :
-        isi_file += array_pengganti[i]
+        isi_file += array_pengganti[i] + "\n"
         
     file_diganti.write(isi_file)
-
+    file_diganti.write("99999")
+    
     file_diganti.close()
 
 
@@ -28,7 +29,7 @@ def save(dir, arr_game, arr_riwayat, arr_user, arr_kepemilikan) :
     # KAMUS LOKAL
     # dir_tiada : boolean
     
-    dir_tiada = True    
+    dir_tiada = True 
     arr_game=csvparser.tocsv(arr_game,6,"array")
     arr_user=csvparser.tocsv(arr_user,6,"array")
     arr_riwayat=csvparser.tocsv(arr_riwayat,5,"array")
@@ -42,7 +43,7 @@ def save(dir, arr_game, arr_riwayat, arr_user, arr_kepemilikan) :
 
     if dir_tiada :          # Direktori belum ada
         # buat folder baru
-        os.mkdir("./", dir)
+        os.mkdir("./" + dir)
     
     buat_file("game.csv", arr_game, dir)
     buat_file("user.csv", arr_user, dir)
